@@ -1,0 +1,10 @@
+<% if session[:user_id] %>
+
+<h2>User Profile</h2>
+
+<h3>Username: </h3>
+<%= @user %>
+
+<% else %>
+<% redirect '/' %>
+<% end %>

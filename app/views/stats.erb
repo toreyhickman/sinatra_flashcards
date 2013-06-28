@@ -1,0 +1,13 @@
+<h2>User Stats:</h2>
+
+
+<% @user.rounds.each do |round| %>
+  <h3>Deck Name:</h3>
+  <h3>Date Played</h3>
+  <h3>Score Percentage:</h3>
+  <% round.guesses.each do |guess| %>
+    <% guess.card.prompt %>
+    <% guess.card.answer %>
+    <% guess.correct %>
+  <% end %>
+<% end %>
