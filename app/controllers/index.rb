@@ -1,5 +1,5 @@
 before do
-  @user = "Rick"
+  @decks = Deck.all
 end
 
 get '/' do
@@ -7,9 +7,11 @@ get '/' do
 end
 
 post '/login' do
-  @user = User.find_by_username(params[:username])
-  if @user.password == params[:password]
-    session[:id] = user.id
+  @user = User.find_by_username(params[:login][:username])
+  if @user.password == params[:login][:password]
+    session[:user_id] = @user.id
+    p "Hello"
+    p session[:user_id]
   end
   redirect '/'
 end
