@@ -2,28 +2,40 @@
 
 <% if session[:user_id] %>
 
-  <h1>Flash Cards!</h1>
   <h2>Decks</h2>
+  <p class="follow_heading">Here are all the decks that you can play.</p>
   <% @decks.each do |deck| %>
-  <h3><a href="/play/<%= deck.name %>"><%= deck.name %></a><br></h3>
-  <p><%= deck.description %></p><br><br>
+  <div class="deck_list_name">
+    <h3><a href="/play/<%= deck.name %>"><%= deck.name %></a><br></h3>
+    <p><%= deck.description %></p>
+  </div>
   <% end %>
 
 <% else %>
 
-<h3>Been here before?  Log in here:</h3>
-  <form action='/login' method='POST'>
-    <input type="username" name="login[username]"><br>
-    <input type="password" name="login[password]"><br>
-    <input type="submit">
-  </form>
+<div id="sign_in_register" class="float_left">
 
-<h3>New here? Sign up below:</h3><br>
-  <form action="/signup" method="POST">
-    <input type="username" name="signup[username]"><br>
-    <input type="password" name="signup[password]"><br>
-    <input type="submit">
-  </form>
+  <div class="float_left">
+    <h2>Been here before?</h2>
+    <p>Log in here:</p>
+    <form action='/login' method='POST'>
+      <input type="username" name="login[username]" placeholder="username"><br>
+      <input type="password" name="login[password]" placeholder="password"><br>
+      <input class="submit" type="submit" value="Log In">
+    </form>
+  </div>
+  
+  <div class="float_right">
+    <h2>New here?</h2>
+    <p>Register below:</p>
+    <form action="/signup" method="POST">
+      <input type="username" name="signup[username]" placeholder="username"><br>
+      <input type="password" name="signup[password]" placeholder="password"><br>
+      <input class="submit" type="submit" value="Register">
+    </form>
+  </div>
+
+</div>
 
 <% end %>
 
