@@ -51,11 +51,15 @@ post '/signup' do
 end
 
 post '/next' do
+
   card = Card.find(params[:id])
 
   if params[:guess] == card.answer
-    @score += 1
+    session[:score] += 1
+    puts "Score increased to #{session[:score]}."
   end
+
+  puts "Score outside the loop is #{session[:score]}."
 
   redirect '/play/:deck_name'
 end
@@ -63,4 +67,6 @@ end
 post '/finish' do
 
 end
+
+
 
