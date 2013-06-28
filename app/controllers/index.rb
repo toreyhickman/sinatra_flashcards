@@ -23,8 +23,8 @@ get '/logout' do
 end
 
 # routes to a user profile
-get '/profile/?' do
-  #@user = User.find(session[:id])
+get '/profile/:username' do
+  @user = User.find(session[:id])
   erb :profile
 end
 
@@ -34,8 +34,8 @@ get'/round_stats/:round_id/' do
   erb :round_stats
 end
 
-get '/play/:deck_id' do
-  @deck = Deck.find(params[:deck_id])
+get '/play/:deck_name' do
+  @deck = Deck.find_by_name(params[:deck_name])
   erb :play_round
 end
 
