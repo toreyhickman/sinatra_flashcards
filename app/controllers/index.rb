@@ -10,8 +10,6 @@ post '/login' do
   @user = User.find_by_username(params[:login][:username])
   if @user.password == params[:login][:password]
     session[:user_id] = @user.id
-    p "Hello"
-    p session[:user_id]
   end
   redirect '/'
 end
@@ -35,7 +33,14 @@ get'/round_stats/:round_id/' do
 end
 
 get '/play/:deck_name' do
-  @deck = Deck.find_by_name(params[:deck_name])
+  puts params[:deck_name]
+  unless session[:round_id]
+    create_game(params[:deck_name])
+  end
+  
+  deck = Deck.find(session[:deck_id])
+  @card = deck.cards.sample
+  
   erb :play_round
 end
 
@@ -44,3 +49,18 @@ post '/signup' do
   session[:user_id] = 5
   redirect '/profile'
 end
+
+post '/next' do
+  card = Card.find(params[:id])
+
+  if params[:guess] == card.answer
+    @score += 1
+  end
+
+  redirect '/play/:deck_name'
+end
+
+post '/finish' do
+
+end
+
