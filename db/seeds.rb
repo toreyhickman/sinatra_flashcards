@@ -1,6 +1,3 @@
-
-require 'faker'
-
 def fake_user
   User.create(:username => Faker::Internet.user_name, :password => "password")
 end
@@ -24,4 +21,3 @@ Card.create(:prompt => "8 - 7", :answer => "1", :deck_id => 2)
 Card.create(:prompt => "6 - 4", :answer => "2", :deck_id => 2)
 Card.create(:prompt => "5 - 1", :answer => "4", :deck_id => 2)
 Card.create(:prompt => "8 - 5", :answer => "3", :deck_id => 2)
-
