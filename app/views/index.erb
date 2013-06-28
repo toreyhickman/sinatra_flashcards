@@ -4,7 +4,10 @@
 
   <h1>Flash Cards!</h1>
   <h2>Decks</h2>
-  <% %>
+  <% @decks.each do |deck| %>
+  <h3><a href="/play/<%= deck.name %>"><%= deck.name %></a><br></h3>
+  <p><%= deck.description %></p><br><br>
+  <% end %>
 
 <% else %>
 
