@@ -47,7 +47,7 @@ end
 post '/signup' do
   # @user = User.create(params)
   session[:user_id] = 5
-  redirect '/profile'
+  redirect '/'
 end
 
 post '/next' do
@@ -61,7 +61,7 @@ post '/next' do
 
   puts "Score outside the loop is #{session[:score]}."
 
-  redirect '/play/:deck_name'
+  redirect "/play/#{:deck_name}""
 end
 
 post '/finish' do
