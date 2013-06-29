@@ -137,3 +137,7 @@ input:focus {
   margin-top: 0;
   color: #666;
 }
+
+h2.prompt {
+  margin-bottom: 24px;
+}

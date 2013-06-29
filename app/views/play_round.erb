@@ -1,17 +1,26 @@
-<h1><%= @card.prompt %></h1>
 
-<form action="/next" method="POST">
+<h1><%= @card.deck.name %></h1>
+
+<div id="sign_in_register">
+<h2 class="prompt"><%= @card.prompt %></h2>
+
+<form action="/show_answer" method="POST">
   <input type="hidden" value="<%= @card.id %>" name="id">
-  <input type="text" name="guess"><br><br>
-  <input type="submit">
-
+  <input type="text" name="guess" placeholder="your answer"><br><br>
+  <input type="submit" class="submit" value="Submit Your Answer">
+ 
 </form>
-<h2><%= @card.answer %></h2>
+
+<% if @show_answer %>
+<%= erb :_card_answer %>
+<% end %>
 
 <!-- <form action="/next" method="POST">
   <input type="hidden" value="<%= @card.id %>" name="id">
   <input type="submit" value="Next Card">
 </form><br> -->
 <form action="/finish">
-  <input type="submit" value="Finish">
+  <input type="submit" value="Finish" class="submit">
 </form>
+
+</div>
