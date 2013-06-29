@@ -8,14 +8,12 @@ end
 post '/login' do
 
   @user = User.find_by_username(params[:login][:username])
-  p User.find_by_username(params[:login][:username])
-  p params[:login][:password]
+  
   if @user.password == params[:login][:password]
     session[:user_id] = @user.id
   end
   redirect '/'
 end
-
 
 get '/logout' do 
 
@@ -24,7 +22,6 @@ get '/logout' do
 end
 
 
-# routes to a user profile
 get '/profile/:username' do
   @user = User.find(session[:id])
   erb :profile

@@ -1,9 +1,6 @@
 
-before do
-  @decks = Deck.all
-end
-
 get '/' do
+  @decks = Deck.all
   erb :index
 end
 

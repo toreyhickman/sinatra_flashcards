@@ -1,16 +1,19 @@
 get '/play/:deck_name' do
+  
   puts params[:deck_name]
   round = Round.new
-  unless session[:round_id]
-    create_game(params[:deck_name])
-  end
   
-  deck = Deck.find(session[:deck_id])
   @card = deck.cards.sample
   
   erb :play_round
 end
 
+post '/play/:deck_name' do
+  deck = Deck.find(session[:deck_id])
+  @card = deck.cards.sample
+  
+  erb :play_round
+end
 
 
 post '/show_answer' do
