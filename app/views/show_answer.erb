@@ -7,12 +7,11 @@
 <form action="/show_answer" method="POST">
   <input type="hidden" value="<%= @card.id %>" name="id">
   <input type="text" name="guess" placeholder="your answer"><br><br>
-  <input type="submit" class="submit" value="Submit Your Answer">
+  <input type="submit" class="submit" value="Next card">
 </form>
 
-<% if @show_answer %>
-<%= erb :_card_answer %>
-<% end %>
+
+<h2 class="answer"><%= @card.answer %></h2>
 
 <!-- <form action="/next" method="POST">
   <input type="hidden" value="<%= @card.id %>" name="id">

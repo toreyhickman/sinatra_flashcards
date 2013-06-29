@@ -138,6 +138,6 @@ input:focus {
   color: #666;
 }
 
-h2.prompt {
+h2.prompt, h2.answer {
   margin-bottom: 24px;
 }
