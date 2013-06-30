@@ -1,0 +1,35 @@
+<div class="container">
+
+  <% user = User.find(session[:user]) %>
+	<h2><%= user.username %></h2>
+  <p class="follow_heading">Here is a history of all the decks you've played.</p>
+
+  <% rounds = user.rounds.reverse %>
+
+  <% if rounds.count == 0 %>
+    <p>It looks like you haven't played any rounds.  <a href="/">Why not play one now?</a></p>
+
+  <% else %>
+
+    <% rounds.each do |round| %>
+      <div class="deck_list_name">
+        <h2>
+          <a href="/d/<%= round.deck_id %>"><%= Deck.find(round.deck_id).name %></a>
+        </h2>
+        <p class="following_heading">
+          <% time = round.created_at %>
+          Date played: <%= Date::MONTHNAMES[time.month] %> <%= time.day %>, <%= time.year %>
+          <br>
+          Cards played: <%= round.guesses.count %>
+          <br>
+          <% correct_count = round.guesses.select {|g| g.correct == "true" }.count %>
+          Cards correct: <%= correct_count %> (<%= ((correct_count.to_f / round.guesses.count) * 100).to_i %>%)
+        </p>
+      </div>
+    <% end %>
+
+  <% end %>
+
+
+
+</div>

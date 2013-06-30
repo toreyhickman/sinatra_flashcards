@@ -1,4 +1,11 @@
 <div class="container">
-	<p>You scored <%= @round.guesses.where(:correct => "true").count %>/<%= @round.guesses.count %> for this round!</p>
-	<a href="/">Return to decks list</a>
+
+  <h2><%= @deck.name %></h2>
+
+  <div id="sign_in_register">
+  <h2>Round Complete!</h2>
+  	<p class="follow_heading">You answered <%= @round.guesses.where(:correct => "true").count %>/<%= @round.guesses.count %> cards correctly this round.</p>
+    <a href="/d/<%= @round.deck_id %>"><p>Play <%= Deck.find(@round.deck_id).name %> again?</p></a>
+  	<a href="/"><p>Try another deck?</p></a>
+  </div>
 </div>

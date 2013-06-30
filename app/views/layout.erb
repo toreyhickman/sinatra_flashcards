@@ -24,17 +24,19 @@
         <a href="/"><h1>Flashcards!</h1></a>
       </div>
       
-      <% if session[:user_id] %>
+      <% if session[:user] %>
         <div class="float_right session">
           <a href="/logout">Logout</a>
         </div>
         <div class="float_right session">
-          <a href="/profile/?">My Profile</a>
+          <a href="/profile/<%= session[:user] %>">My Profile</a>
         </div>
       <% end %>
 
     </div>
   </header>
+
   <%= yield %>
+
 </body>
 </html>

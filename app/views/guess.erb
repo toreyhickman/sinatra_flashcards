@@ -1,9 +1,16 @@
 <div class="container">
-	<%= @card.front %>
-	<p>Enter the answer:</p>
-	<form action='/r/<%= params[:id] %>/answer' method='POST'>
-		<input type="hidden" name="card_id" value="<%= @card.id %>">
-		<input type="text" name="answer">
-    <input class="submit" type="submit" value="Submit">
-  </form>
+
+  <h2><%= @deck.name %></h2>
+
+  <div id="sign_in_register">
+  	<h2><%= @card.front %></h2>
+  	<form action='/r/<%= params[:id] %>/answer' method='POST'>
+  		<input type="hidden" name="card_id" value="<%= @card.id %>">
+  		<input id="answer" type="text" name="answer" placeholder="Your answer here">
+
+      <br>
+
+      <input class="submit" type="submit" value="Submit Your Answer">
+    </form>
+  </div>
 </div>

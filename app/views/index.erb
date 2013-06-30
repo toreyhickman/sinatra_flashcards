@@ -6,7 +6,7 @@
   <p class="follow_heading">Here are all the decks that you can play.</p>
   <% @decks.each do |deck| %>
   <div class="deck_list_name">
-    <a href="/d/<%= deck.id %>"><%= deck.name %></a><br>
+    <a href="/d/<%= deck.id %>"><h2><%= deck.name %></h2></a>
     <p><%= deck.description %></p>
   </div>
   <% end %>

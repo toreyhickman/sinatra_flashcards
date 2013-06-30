@@ -1,11 +1,22 @@
 <div class="container">
 	<h2><%= @deck.name %></h2>
-	<% @deck.cards.each do |card| %>
-		<a href="/c/<%= card.id %>"><%= card.id %></a>
-	<% end %>
-	<form action='/r/new' method='POST'>
-		<input type="hidden" name="deck_id" value="<%= @deck.id %>">
-		<input type="hidden" name="user_id" value="<%= current_user.id %>">
-    <input class="submit" type="submit" value="New Round">
-  </form>
+
+
+  <div id="sign_in_register">
+  	<p><%= @deck.name %> contains <%= @deck.cards.count %> flashcards.</p> 
+    <p>Click the play button when you are ready to begin.</p>
+    
+    <!--
+    <% @deck.cards.each do |card| %>
+    	<a href="/c/<%= card.id %>"><%= card.id %></a>
+  	< <% end %>
+    -->
+  	
+    <form action='/r/new' method='POST'>
+  		<input type="hidden" name="deck_id" value="<%= @deck.id %>">
+  		<input type="hidden" name="user_id" value="<%= current_user.id %>">
+      <input class="submit play_button" type="submit" value="Play">
+    </form>
+  </div>
+
 </div>
