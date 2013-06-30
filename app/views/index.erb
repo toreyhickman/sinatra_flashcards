@@ -1,6 +1,6 @@
 <div class="container">
 
-<% if session[:user_id] %>
+<% if session[:user] %>
 
   <h2>Decks</h2>
   <p class="follow_heading">Here are all the decks that you can play.</p>
@@ -19,8 +19,8 @@
     <h2>Been here before?</h2>
     <p>Log in here:</p>
     <form action='/login' method='POST'>
-      <input type="username" name="login[username]" placeholder="username"><br>
-      <input type="password" name="login[password]" placeholder="password"><br>
+      <input type="username" name="username" placeholder="username"><br>
+      <input type="password" name="password" placeholder="password"><br>
       <input class="submit" type="submit" value="Log In">
     </form>
   </div>
@@ -29,8 +29,8 @@
     <h2>New here?</h2>
     <p>Register below:</p>
     <form action="/signup" method="POST">
-      <input type="username" name="signup[username]" placeholder="username"><br>
-      <input type="password" name="signup[password]" placeholder="password"><br>
+      <input type="username" name="username" placeholder="username"><br>
+      <input type="password" name="password" placeholder="password"><br>
       <input class="submit" type="submit" value="Register">
     </form>
   </div>
