@@ -1,41 +1,13 @@
-<div class="container">
-
 <% if session[:user] %>
-
-  <h2>Decks</h2>
-  <p class="follow_heading">Here are all the decks that you can play.</p>
-  <% @decks.each do |deck| %>
-  <div class="deck_list_name">
-    <a href="/d/<%= deck.id %>"><h2><%= deck.name %></h2></a>
-    <p><%= deck.description %></p>
-  </div>
-  <% end %>
+  <div id="filter-deck-splash">
+		<h2>What kind of deck are you looking for?</h2>
+		<ul>
+			<li>
+				<a href="#">
+					<span>Example tag</span>
+					<span>18</span>
+				</a>
+	</div>
 <% else %>
-
-<div id="sign_in_register" class="float_left">
-
-  <div class="float_left">
-    <h2>Been here before?</h2>
-    <p>Log in here:</p>
-    <form action='/login' method='POST'>
-      <input type="username" name="username" placeholder="username"><br>
-      <input type="password" name="password" placeholder="password"><br>
-      <input class="submit" type="submit" value="Log In">
-    </form>
-  </div>
-  
-  <div class="float_right">
-    <h2>New here?</h2>
-    <p>Register below:</p>
-    <form action="/signup" method="POST">
-      <input type="username" name="username" placeholder="username"><br>
-      <input type="password" name="password" placeholder="password"><br>
-      <input class="submit" type="submit" value="Register">
-    </form>
-  </div>
-
-</div>
-
+  <%= erb :_sign_in_out %>
 <% end %>
-
-</div>
