@@ -4,6 +4,8 @@ end
 
 5.times { fake_user }
 
+User.create(:username => "test", :password => "password")
+
 add = Deck.create!(:name => "Simple Addition", :description => "Practice your addition skills.")
 sub = Deck.create!(:name => "Simple Subtraction", :description => "Practice your subtraction skills.")
 
