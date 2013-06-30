@@ -1,5 +1,5 @@
 body {
-  background-color: #eeeeee;
+  background-color: #f7f7f7;
   font-size: 14px;
 }
 
@@ -16,13 +16,13 @@ h2, h3 {
   float: right;
 }
 
+/* Header shit */
+
 header {
-  height: 64px;
+  height: 50px;
   width: 100%;
-  background-color: #292929;
-  color: #eee;
-  position: fixed;
-  top: 0;
+  background: #f9f9f9;
+  border-bottom: 1px solid #d0d0d0;
   line-height: 64px;
 }
 
@@ -40,11 +40,33 @@ header a:hover {
 }
 
 #header_wrap {
-  width: 600px;
+  width: 900px;
   margin: 0 auto 0 auto;
   height: 64px;
   line-height: 64px;
 }
+
+#sub-header {
+  height: 45px;
+  width: 100%;
+  background: #007ab3;
+}
+
+#filter-deck-splash {
+  width: 100%;
+  height: 300px;
+  background-size: cover;
+}
+
+#filter-deck-splash h2 {
+  opacity: 1;
+  text-align: center;
+  padding-top: 75px;
+  font-size: 35px;
+  text-shadow: 1px 1px 1px #fff);
+}
+
+/* Other */
 
 .session {
   margin-left: 16px;
@@ -52,9 +74,8 @@ header a:hover {
 
 .container {
   margin: 88px auto;
-  width: 600px;
+  width: 950px;
   padding: 20px 20px 20px 20px;
-  /*border: 1px dotted black;*/
 }
 
 .container a, a:visited a:hover {

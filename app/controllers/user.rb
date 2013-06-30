@@ -12,3 +12,13 @@ post '/login' do
     redirect '/'
   end
 end
+
+get '/u/:id' do
+	@user = User.find(params[:id])
+	erb :user
+end
+
+get '/logout' do
+	session.clear
+	redirect '/'
+end
