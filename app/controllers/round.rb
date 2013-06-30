@@ -18,7 +18,8 @@ end
 post '/r/:id/answer' do
 	round = Round.find(params[:id])
 	card = Card.find(params[:card_id])
-	correct = params[:answer] == card.back
-	round.guesses.create!(:card => Card.find(params[:card_id]), :round => round, :correct => correct, :response => params[:answer])
+	answer = params[:answer]
+	correct = answer == card.back ? "true" : "false"
+	round.guesses.create!(:card => Card.find(params[:card_id]), :round => round, :correct => correct, :response => answer)
 	redirect "/r/#{round.id}"
 end

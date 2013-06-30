@@ -1,4 +1,4 @@
 <div class="container">
-	<p>You scored <%= @round.guesses.where(:correct => true).count %>/<%= @round.guesses.count %> for this round!</p>
+	<p>You scored <%= @round.guesses.where(:correct => "true").count %>/<%= @round.guesses.count %> for this round!</p>
 	<a href="/">Return to decks list</a>
 </div>
