@@ -1,6 +1,6 @@
 class Card < ActiveRecord::Base
-  validates :prompt, :presence => true
-  validates :answer, :presence => true
+  validates :front, :presence => true
+  validates :back, :presence => true
 
   belongs_to :deck
   has_many :guesses

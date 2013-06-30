@@ -6,11 +6,10 @@
   <p class="follow_heading">Here are all the decks that you can play.</p>
   <% @decks.each do |deck| %>
   <div class="deck_list_name">
-    <h3><a href="/play/<%= deck.name %>"><%= deck.name %></a><br></h3>
+    <a href="/d/<%= deck.id %>"><%= deck.name %></a><br>
     <p><%= deck.description %></p>
   </div>
   <% end %>
-
 <% else %>
 
 <div id="sign_in_register" class="float_left">

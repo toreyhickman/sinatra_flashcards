@@ -1,0 +1,9 @@
+<div class="container">
+	<%= @card.front %>
+	<p>Enter the answer:</p>
+	<form action='/r/<%= params[:id] %>/answer' method='POST'>
+		<input type="hidden" name="card_id" value="<%= @card.id %>">
+		<input type="text" name="answer">
+    <input class="submit" type="submit" value="Submit">
+  </form>
+</div>

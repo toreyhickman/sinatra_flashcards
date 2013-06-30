@@ -4,18 +4,17 @@ end
 
 5.times { fake_user }
 
-addition_deck = Deck.create(:name => "Simple Addition", :description => "Practice your addition skills.")
+add = Deck.create!(:name => "Simple Addition", :description => "Practice your addition skills.")
+sub = Deck.create!(:name => "Simple Subtraction", :description => "Practice your subtraction skills.")
 
-Card.create(:prompt => "5 + 6", :answer => "11", :deck_id => 1)
-Card.create(:prompt => "2 + 3", :answer => "5", :deck_id => 1)
-Card.create(:prompt => "7 + 9", :answer => "16", :deck_id => 1)
-Card.create(:prompt => "3 + 4", :answer => "7", :deck_id => 1)
-Card.create(:prompt => "4 + 8", :answer => "12", :deck_id => 1)
+add.cards.create!(:front => "5 + 6", :back => "11")
+add.cards.create!(:front => "2 + 3", :back => "5")
+add.cards.create!(:front => "7 + 9", :back => "16")
+add.cards.create!(:front => "3 + 4", :back => "7")
+add.cards.create!(:front => "4 + 8", :back => "12")
 
-subtraction_deck = Deck.create(:name => "Simple Subtraction", :description => "Practice your subtraction skills.")
-
-Card.create(:prompt => "9 - 4", :answer => "5", :deck_id => 2)
-Card.create(:prompt => "8 - 7", :answer => "1", :deck_id => 2)
-Card.create(:prompt => "6 - 4", :answer => "2", :deck_id => 2)
-Card.create(:prompt => "5 - 1", :answer => "4", :deck_id => 2)
-Card.create(:prompt => "8 - 5", :answer => "3", :deck_id => 2)
+sub.cards.create!(:front => "9 - 4", :back => "5")
+sub.cards.create!(:front => "8 - 7", :back => "1")
+sub.cards.create!(:front => "6 - 4", :back => "2")
+sub.cards.create!(:front => "5 - 1", :back => "4")
+sub.cards.create!(:front => "8 - 5", :back => "3")
