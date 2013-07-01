@@ -260,3 +260,16 @@ div.collapser > text:hover {
 .collapser > text {
   font-size: 10px;
 }
+
+#round_recap {
+  margin: 24px auto 56px auto;
+}
+
+#round_recap h4 {
+  margin-bottom: 0;
+  pading-bottom: 0;
+}
+
+#round_recap p.follow_heading {
+  margin-bottom: 24px;
+}

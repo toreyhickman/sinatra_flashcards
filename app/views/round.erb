@@ -4,7 +4,26 @@
 
   <div id="sign_in_register">
   <h2>Round Complete!</h2>
-  	<p class="follow_heading">You answered <%= @round.guesses.where(:correct => "true").count %>/<%= @round.guesses.count %> cards correctly this round.</p>
+  	<p class>You answered <%= @round.guesses.where(:correct => "true").count %>/<%= @round.guesses.count %> cards correctly this round.</p>
+
+    <div id="round_recap">
+      <% @round.guesses.each do |guess| %>
+        
+        <h4><%= guess.card.front %></h4>
+        <p class="follow_heading"> 
+            <text class="<%= guess.correct == "true" ? "correct" : "wrong" %>">
+              <%= guess.response %>
+            </text><br>
+          <% if guess.correct != "true" %>
+            Correct answer: <%= guess.card.back %>
+          <% end %>
+        </p>
+      <% end %>
+    </div>
+
+
+
+
     <a href="/d/<%= @round.deck_id %>"><p>Play <%= Deck.find(@round.deck_id).name %> again?</p></a>
   	<a href="/"><p>Try another deck?</p></a>
   </div>

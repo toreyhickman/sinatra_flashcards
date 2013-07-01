@@ -43,7 +43,7 @@
             <% round.guesses.each do |guess| %>
               <p>
                 Prompt: <%= guess.card.front %><br>
-                Your answer: 
+                
                   <text class="<%= guess.correct == "true" ? "correct" : "wrong" %>">
                     <%= guess.response %>
                   </text><br>
