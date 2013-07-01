@@ -4,24 +4,29 @@ body {
   background-color: #eeeeee;
 
   /* Safari 4-5, Chrome 1-9 */
-  background: -webkit-gradient(linear, left top, right top, from(#ccc), color-stop(0.5, #fff), to(#ccc));
+  background: -webkit-gradient(linear, left top, right top, from(#ddd), color-stop(0.5, #fff), to(#ddd));
 
   /* Safari 5.1+, Chrome 10+ */
-  background: -webkit-linear-gradient(left, #ccc, #fff, #ccc);
+  background: -webkit-linear-gradient(left, #ddd, #fff, #ddd);
 
   /* Firefox 3.6+ */
-  background: -moz-linear-gradient(left, #ccc, #fff, #ccc);
+  background: -moz-linear-gradient(left, #ddd, #fff, #ddd);
 
   /* IE 10 */
-  background: -ms-linear-gradient(left, #ccc, #fff, #ccc);
+  background: -ms-linear-gradient(left, #ddd, #fff, #ddd);
 
   /* Opera 11.10+ */
-  background: -o-linear-gradient(left, #ccc, #fff, #ccc);
+  background: -o-linear-gradient(left, #ddd, #fff, #ddd);
   font-size: 14px;
 }
 
 h2, h3 {
   margin: 0;
+  padding: 0;
+}
+
+h4 {
+  margin: 4px 0 0 0;
   padding: 0;
 }
 
@@ -33,14 +38,33 @@ h2, h3 {
   float: right;
 }
 
-/* Header shit */
-
 header {
-  height: 50px;
+  height: 64px;
   width: 100%;
-  background: #f9f9f9;
-  border-bottom: 1px solid #d0d0d0;
+  border-bottom: 1px solid #ddd;
+  color: #ccc;
+  position: fixed;
+  top: 0;
   line-height: 64px;
+
+  background-color: #eeeeee;
+
+  /* Safari 4-5, Chrome 1-9 */
+  background: -webkit-gradient(linear, left top, right top, from(#ddd), color-stop(0.5, #fff), to(#ddd));
+
+  /* Safari 5.1+, Chrome 10+ */
+  background: -webkit-linear-gradient(left, #ddd, #fff, #ddd);
+
+  /* Firefox 3.6+ */
+  background: -moz-linear-gradient(left, #ddd, #fff, #ddd);
+
+  /* IE 10 */
+  background: -ms-linear-gradient(left, #ddd, #fff, #ddd);
+
+  /* Opera 11.10+ */
+  background: -o-linear-gradient(left, #ddd, #fff, #ddd);
+  font-size: 14px;
+
 }
 
 #header_title h1 {
@@ -48,7 +72,7 @@ header {
 }
 
 header a, a:visited, a:hover {
-  color: #eee;
+  color: #292929;
   text-decoration: none;
 }
 
@@ -57,33 +81,11 @@ header a:hover {
 }
 
 #header_wrap {
-  width: 900px;
+  width: 600px;
   margin: 0 auto 0 auto;
   height: 64px;
   line-height: 64px;
 }
-
-#sub-header {
-  height: 45px;
-  width: 100%;
-  background: #007ab3;
-}
-
-#filter-deck-splash {
-  width: 100%;
-  height: 300px;
-  background-size: cover;
-}
-
-#filter-deck-splash h2 {
-  opacity: 1;
-  text-align: center;
-  padding-top: 75px;
-  font-size: 35px;
-  text-shadow: 1px 1px 1px #fff);
-}
-
-/* Other */
 
 .session {
   margin-left: 16px;
@@ -91,8 +93,9 @@ header a:hover {
 
 .container {
   margin: 88px auto;
-  width: 950px;
+  width: 600px;
   padding: 20px 20px 20px 20px;
+  /*border: 1px dotted black;*/
 }
 
 .container a, a:visited a:hover {
@@ -182,4 +185,78 @@ input:focus {
 .deck_list_name p {
   margin-top: 0;
   color: #666;
+}
+
+a.stop_round , a.stop_round:visited {
+  color: #bbb;
+}
+
+a.stop_round:hover {
+  color: #0088cc;
+}
+
+p.date_played {
+  color: #292929;
+}
+
+.round_stats {
+  margin: 0;
+  padding:; 0;
+}
+
+.guess_recap {
+  margin: 0 0 0 0;
+  padding: 0 0 0 24px;
+}
+
+.correct {
+  color: #00a032;
+}
+
+.wrong {
+  color: #c8255d;
+}
+
+.hidden {
+  height: 0px;
+  overflow: hidden;
+}
+
+.shown {
+  height: auto;
+  margin-top: 16px;
+  transition: height 2s;
+  -webkit-transition: height 2s; /* Safari */
+}
+
+.expander {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 24px;
+  color: #999;
+}
+
+.collapser {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 24px;
+  color: #999;
+}
+
+div.expander > text:hover {
+  color: #0088cc;
+  cursor: pointer;
+}
+
+div.collapser > text:hover {
+  color: #0088cc;
+  cursor: pointer;
+}
+
+.expander > text {
+  font-size: 10px;
+}
+
+.collapser > text {
+  font-size: 10px;
 }

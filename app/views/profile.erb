@@ -2,34 +2,71 @@
 
   <% user = User.find(session[:user]) %>
 	<h2><%= user.username %></h2>
-  <p class="follow_heading">Here is a history of all the decks you've played.</p>
+  <p class="follow_heading">Here is a history of your most recent attempts for each of the decks you've played.</p>
 
-  <% rounds = user.rounds.reverse %>
+  <% decks_played = user.rounds.select(:deck_id).uniq %>
 
-  <% if rounds.count == 0 %>
+  <% if decks_played.count == 0 %>
     <p>It looks like you haven't played any rounds.  <a href="/">Why not play one now?</a></p>
 
   <% else %>
 
-    <% rounds.each do |round| %>
+    <!-- for each deck played -->
+    <% decks_played.each do |deck| %>
+
       <div class="deck_list_name">
-        <h2>
-          <a href="/d/<%= round.deck_id %>"><%= Deck.find(round.deck_id).name %></a>
-        </h2>
-        <p class="following_heading">
-          <% time = round.created_at %>
-          Date played: <%= Date::MONTHNAMES[time.month] %> <%= time.day %>, <%= time.year %>
-          <br>
-          Cards played: <%= round.guesses.count %> of <%= Deck.find(round.deck_id).cards.count %> cards in the deck.
-          <br>
-          <% correct_count = round.guesses.select {|g| g.correct == "true" }.count %>
-          Cards correct: <%= correct_count %> (<%= ((correct_count.to_f / round.guesses.count) * 100).to_i %>%)
-        </p>
+
+        <% deck_for_listing_rounds = Deck.find(deck.deck_id) %>
+
+        <h2><a href="/d/<%= deck_for_listing_rounds.id %>"><%= deck_for_listing_rounds.name %></a></h2>
+
+        <!-- for the five most recent rounds of the deck -->
+        <% deck_for_listing_rounds.rounds.order("created_at DESC").limit(5).each do |round| %>
+          
+          <h4 class="date_played">
+            <%= Date::MONTHNAMES[round.created_at.month] %> <%= round.created_at.day %>, <%= round.created_at.year %>
+          </h4>
+
+          <p class="round_stats">
+            Cards played: <%= round.guesses.count %> of <%= Deck.find(round.deck_id).cards.count %>.
+            <br>
+            <% correct_count = round.guesses.select {|g| g.correct == "true" }.count %>
+            <% unless correct_count == 0 %>
+              Cards correct: <%= correct_count %> (<%= ((correct_count.to_f / round.guesses.count) * 100).to_i %>%)
+            <% end %>
+          </p>
+
+
+          
+          <div class="guess_recap hidden">
+
+            <% round.guesses.each do |guess| %>
+              <p>
+                Prompt: <%= guess.card.front %><br>
+                Your answer: 
+                  <text class="<%= guess.correct == "true" ? "correct" : "wrong" %>">
+                    <%= guess.response %>
+                  </text><br>
+                <% if guess.correct != "true" %>
+                  Correct answer: <%= guess.card.back %>
+                <% end %>
+              </p>
+            <% end %>
+
+          </div>
+
+          <div class="expander">
+            <text class="<%= "expand_text" unless correct_count == 0 %>"><%= "Expand" unless correct_count == 0 %></text>
+          </div>
+          
+
+
+        <% end %>
+
       </div>
-    <% end %>
 
-  <% end %>
+   <% end %>
 
-
+   <% end %>
 
 </div>

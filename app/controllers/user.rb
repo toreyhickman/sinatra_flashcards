@@ -14,12 +14,15 @@ post '/login' do
   end
 end
 
-get '/u/:id' do
-	@user = User.find(params[:id])
-	erb :user
+get '/logout' do
+  session.clear
+  redirect "/"
 end
 
-get '/logout' do
-	session.clear
-	redirect '/'
+get '/profile/:user_id' do
+  if params[:user_id].to_i == session[:user].to_i
+    erb :profile
+  else
+    redirect "/profile/#{session[:user]}"
+  end
 end
